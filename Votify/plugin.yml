@@ -1,0 +1,23 @@
+name: Votify
+main: Votify
+version: v1.6.3
+api: 2.0.0
+author: sevenzerodev
+softdepend: [EconomyAPI, EcoSys]
+commands:
+  vote:
+    permission: votify.command.vote
+
+permissions:
+  votify.command.vote:
+    default: true
+  votify.command.vote.check:
+    default: true
+  votify.command.vote.claim:
+    default: true
+  votify.command.vote.top:
+    default: true
+  votify.command.vote.stats:
+    default: true
+  votify.command.reload:
+    default: op
