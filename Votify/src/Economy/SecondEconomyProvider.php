@@ -1,5 +1,5 @@
 <?php
-
+# bluegames ecosys
 class SecondEconomyProvider extends EconomyProvider {
 
 	const DEFAULT_PLUGIN_NAME = "EcoSys";
