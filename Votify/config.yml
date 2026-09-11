@@ -1,0 +1,90 @@
+# Votify configuration
+# Get your server key from https://minecraftpocket-servers.com after listing your server.
+
+# Your minecraftpocket-servers.com server API key. Required for the plugin to function.
+api-key: ""
+
+# The vote URL shown to players (your server's vote page on minecraftpocket-servers.com).
+vote-url: "https://minecraftpocket-servers.com/vote-XXXX.html"
+
+# Whether Votify should check online players for unclaimed votes.
+auto-check: true
+
+# How often (in seconds) Votify checks online players for votes when auto-check is enabled.
+check-interval: 300
+
+# Whether auto-check should automatically claim and reward votes it finds, instead of just notifying.
+auto-claim: true
+
+# Whether players should be checked for unclaimed votes right when they join.
+reward-on-join: true
+
+# Minimum time (in seconds) a player must wait between manual vote checks/claims, to avoid API spam.
+cooldown: 60
+
+# Economy settings. Votify supports EconomyAPI
+economy:
+  # THIS IS A NON-BLUEGAMES FEATURE, THIS IS THE ECONOMYAPI PROVIDER WHICH IS A PUBLIC ECONOMY PLUGIN, MAKE SURE YOUR SERVER HAS THIS PLUGIN OR VOTIFY WILL AUTOMATICALLY SHUT DOWN
+  # Which economy provider to use: "auto", "economyapi" or "second".
+  provider: "auto"
+  # Currency amount given per claimed vote.
+  reward: 100
+  # THIS IS A BLUEGAMES FEATURE ONLY, THIS WILL NOT AFFECT THE PLUGINS REWARDS SYSTEM 
+  second-plugin-name: "EcoSys"
+
+# Extra rewards given alongside the economy reward.
+rewards:
+  items:
+    enabled: false
+    # Format: "id:meta:count"
+    list:
+      - "263:0:1"
+  commands:
+    enabled: false
+    # {PLAYER} is the voters name. Commands run from console.
+    list:
+      - "give {PLAYER} 1 1"
+
+# Server broadcast when a player vote.
+broadcast:
+  enabled: true
+  message: "§6[Votify] §e{PLAYER} §7has voted for the server! Thanks for the support!"
+
+# Settings for the /vote top command
+top:
+  # "current" or "previous" month.
+  period: "current"
+  amount: 10
+  header: "§bTop§3 Voters"
+  format: "§e{POSITION}. §f{PLAYER} §7- §a{VOTES} votes"
+  footer: "§b§lBLUEGAMES §r§8» §eplay.bluegs.xyz:19122"
+
+# Settings for the /vote stats comamnd
+stats:
+  header: "§bVoting §3Statistics "
+  current-month: "§7Current month votes: §a{VOTES}"
+  previous-month: "§7Previous month votes: §a{VOTES}"
+  total-votes: "§7Total votes: §a{VOTES}"
+  server-rank: "§7Server rank: §a{RANK}"
+
+# How long cache before checked again (in minutes-)
+cache:
+  voters-minutes: 5
+  votes-minutes: 5
+  server-info-minutes: 10
+
+# Chat messages
+messages:
+  prefix: "§6[Votify] §r"
+  vote-info: "§6Vote for the server at: §e{URL}"
+  not-voted: "§cYou haven't voted yet! Use §e/vote §cto vote."
+  unclaimed: "§aYou have an unclaimed vote! Use §e/vote claim §ato receive your reward."
+  already-claimed: "§cYou have already claimed your vote."
+  claim-failed: "§cFailed to claim your vote. Please try again later."
+  reward-received: "§aThanks for voting! You received §e{REWARD} coins§a!"
+  api-error: "§cCould not reach the voting API. Please try again later."
+  invalid-api-key: "§cThe server's voting API key is not configured correctly. Contact an administrator."
+  cooldown: "§cPlease wait before checking again."
+  economy-unavailable: "§cVoting rewards are currently unavailable."
+  reload-success: "§aVotify configuration reloaded."
+  no-permission: "§cYou do not have permission to use this command."
